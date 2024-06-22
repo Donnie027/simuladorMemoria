@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles/globales.css">
+    <link rel="stylesheet" href="styles/memoria.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <title>Asignación de Memoria</title>
+</head>
+<body>
+    
+    <h1>Asignación de Memoria</h1>
+
+<div class="container">
+    <div class="cajaMemoria__datos">
+        Memoria disponible: <span class="memoriaCapacidad">0</span> MB
+    </div>
+
+    <div class="cajaMemoria">
+        <div class="memoriaGenerada">
+            <!-- <div class="comparticionMemoria1"></div>
+            <div class="comparticionMemoria2"></div>
+            <div class="comparticionMemoria3"></div> -->
+        </div>
+    </div>
+    
+    <div class="cajaFunciones">
+
+        <div class="cajaDeOpciones">
+            <ul class="radio-memoria">
+                <li class="opciones-memoria"><label for=""></label> Opción por defecto <input checked name="opcionesAsignacion" type="radio"></li>
+                <!-- <li class="opciones-memoria"><label for=""></label> Mejor Opción <input name="opcionesAsignacion" type="radio"></li> -->
+                <!-- <li class="opciones-memoria"><label for=""></label> Peor Opción <input name="opcionesAsignacion" type="radio"></li> -->
+            </ul>
+            <ul class="cajaBotones">
+                <button class="btn-secundario" id="crearMemoria"><ion-icon name="create"></ion-icon> Crear Memorias</button>
+                <button disabled class="btn-senario" id="iniciarMemoria"><ion-icon name="play"></ion-icon> Iniciar Asignación</button>
+                <!-- <button disabled class="btn-cuaternario" id="detenerMemoria"><ion-icon name="stop"></ion-icon> Detener Asignación</button> -->
+                <button disabled class="btn-septenario" id="liberarMemoria"><ion-icon name="trash-bin"></ion-icon>Liberar Memoria</button>
+            </ul>
+
+            <form class="formularioProcesos">
+                <div class="inputProceso">
+                    <label>Nombre del Proceso</label>
+                    <input id="inputNombreProceso" type="text">
+                </div>
+                <div class="inputProceso">
+                    <label>Tamaño de Proceso</label>
+                    <div class="inputProceso-icon">
+                        <input id="inputTamanioProceso" type="number">
+                        <span>MB</span>
+                    </div>
+                </div>
+
+                <div class="inputProceso">
+                    <label>Color de Indentificación</label>
+                    <input id="inputColorProceso" type="color">
+                </div>
+
+                <div class="botonFormulario">
+                    <button class="btn-primario" id="btnAgregarProceso"><ion-icon name="send"></ion-icon> Asignar </button>
+                </div>
+            </form>
+        </div>
+    
+        <div class="cajaProcesos">
+
+            <div class="tablaProcesos">
+                <table>
+                    <h4>Procesos Activos</h4>
+                    <thead>
+                        <th></th>
+                        <th>UUID</th>
+                        <th>Nombre</th>
+                        <th>Tamaño</th>
+                        <th>Tiempo restante</th>
+                        <th></th>
+                    </thead>
+                    <tbody  class="procesosActivos">
+                        <!-- <tr>
+                            <td title="Color" class="td-color"><div class="color-proceso" style="background: #aaa;"></div></td>
+                            <td title="ID"><span class="id-proceso">1a5ef1e52fas</span></td>
+                            <td title="Nombre"><span class="nombre-proceso">Excel</span></td>
+                            <td title="Tamaño"><span class="tamanio-proceso">150</span> MB</td>
+                            <td title="Tiempo"><span class="tiempo-proceso">150</span></td>
+                            <td title="Eliminar Proceso"><button class="btn-quinario"><ion-icon name="trash"></ion-icon></button></td>
+                        </tr> -->
+                        <!-- <tr>
+                            <td class="td-color"><div class="color-proceso" style="background: #aaa;"></div></td>
+                            <td><span class="id-proceso">1a5ef1e52fas</span></td>
+                            <td><span class="nombre-proceso">Excel</span></td>
+                            <td><span class="tamanio-proceso">150</span> MB</td>
+                            <td><span class="tiempo-proceso">150</span></td>
+                            <td><button class="btn-quinario"><ion-icon name="trash"></ion-icon></button></td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tablaProcesos">
+                <table>
+                    <h4>Procesos En Cola</h4>
+                    <thead>
+                        <th></th>
+                        <th>UUID</th>
+                        <th>Nombre</th>
+                        <th>Tamaño</th>
+                        <th>Tiempo restante</th>
+                        <th></th>
+                    </thead>
+                    <tbody class="procesosEspera">
+                        <!-- <tr>
+                            <td class="td-color"><div class="color-proceso" style="background: #aaa;"></div></td>
+                            <td><span class="id-proceso">1a5ef1e52fas</span></td>
+                            <td><span class="nombre-proceso">Excel</span></td>
+                            <td><span class="tamanio-proceso">150</span> MB</td>
+                            <td><span class="tiempo-proceso">150</span></td>
+                            <td><button class="btn-quinario"><ion-icon name="trash"></ion-icon></button></td>
+                        </tr> -->
+                        <!-- <tr>
+                            <td class="td-color"><div class="color-proceso" style="background: #aaa;"></div></td>
+                            <td><span class="id-proceso">1a5ef1e52fas</span></td>
+                            <td><span class="nombre-proceso">Excel</span></td>
+                            <td><span class="tamanio-proceso">150</span> MB</td>
+                            <td><span class="tiempo-proceso">150</span></td>
+                            <td><button class="btn-quinario"><ion-icon name="trash"></ion-icon></button></td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+    
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
